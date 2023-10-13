@@ -20,5 +20,19 @@ exports.config = {
   include: {
     I: './steps_file.js'
   },
-  name: 'Playwright-Codecept'
+  bootstrap: null,
+  mocha: {},
+  name: 'Playwright-Codecept',
+  plugins: {
+    pauseOnFail: {},
+    retryFailedStep: {
+      enabeled: true
+    },
+    tryTo: {
+      enabeled: true
+    },
+    screenshotOnFail: {
+      enabeled: true
+    }
+  }
 }
