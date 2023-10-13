@@ -1,3 +1,5 @@
+// const LoginPage = require("./pages/LoginPage")
+
 Feature("Swag Lab E2E Tests")
 
 Before(({ I }) => {
@@ -8,10 +10,9 @@ After(({ I }) => {
     console.log("after hook")
 })
 
-Scenario("Login Test - Negative", ({ I }) => {
-    I.seeElement('#login_button_container')
-    I.fillField('[data-test="username"]', 'invalid_username')
-    I.fillField('[data-test="password"]', 'invalid_password')
-    I.click('[data-test="login-button"]')
-    I.seeElement('[data-test="error"]')
+Scenario("Login Test - Negative", ({ I, LoginPage }) => {
+    // I.seeElement('.login-box')
+    LoginPage.submitLogin('invalid-username', 'invlaid-password')
+    LoginPage.assertLoginFormIsVisible()
+    LoginPage.loginErrorMessage()
 })
