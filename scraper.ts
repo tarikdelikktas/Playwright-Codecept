@@ -1,7 +1,7 @@
 const playwright = require('playwright')
 const random_useragent = require('random-useragent')
 
-const BASE_URL = 'https://www.saucedemo.com/'
+const BASE_URL = 'https://www.github.com/topics/playwright'
 
     ;(async () => {
         // Create Random Agent
@@ -15,7 +15,21 @@ const BASE_URL = 'https://www.saucedemo.com/'
         await page.goto(BASE_URL)
 
         // Get Data from Website
+        const repositories = await page.$$eval("article.border", (repoCards) => {
+            return repoCards.map((card) => {
+                const [user, repo] = card.querySelectorAll("h3 a")
 
+                const formatText = (element) => element && element.innerText.trim()
+                
+                return {
+                    user: formatText(user),
+                    repo: formatText(repo),
+                    url: repo.href,
+                }
+            })
+        })
+
+        console.log(repositories)
         // Store Data into File
         // Close browser
         await browser.close()
