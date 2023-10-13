@@ -1,5 +1,3 @@
-// const LoginPage = require("./pages/LoginPage")
-
 Feature("Swag Lab E2E Tests")
 
 Before(({ I }) => {
@@ -11,7 +9,6 @@ After(({ I }) => {
 })
 
 Scenario("Login Test - Negative", ({ I, LoginPage }) => {
-    // I.seeElement('.login-box')
     LoginPage.submitLogin('invalid-username', 'invlaid-password')
     LoginPage.assertLoginFormIsVisible()
     LoginPage.loginErrorMessage()
