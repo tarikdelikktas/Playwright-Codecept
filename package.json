@@ -14,8 +14,12 @@
   "keywords": [],
   "author": "Tarik Deliktas",
   "license": "ISC",
+  "jest": {
+    "verbose": true
+  },
   "dependencies": {
     "@types/mocha": "^10.0.2",
+    "ava": "^5.3.1",
     "chai": "^4.3.10",
     "codeceptjs": "^3.5.6",
     "expect": "^29.7.0",
@@ -26,6 +30,7 @@
     "random-useragent": "^0.5.0"
   },
   "devDependencies": {
+    "@types/jest": "^29.5.5",
     "@types/node": "^20.8.5"
   }
 }
