@@ -20,7 +20,7 @@ afterEach(async () => {
     await page.close()
 })
 
-it("TC1 Playwright Mocha test", async() => {
+it("TC1 Playwright Mocha test", async () => {
     await page.goto("https://www.saucedemo.com/")
     expect('.login_logo').to.exist
 })
